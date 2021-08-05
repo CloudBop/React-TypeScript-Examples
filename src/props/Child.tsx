@@ -4,7 +4,7 @@ interface ChildProps {
   color: string;
 }
 
-function Child(props: ChildProps) {
+function Child({ color }: ChildProps) {
   return <div>Hi there.</div>;
 }
 
