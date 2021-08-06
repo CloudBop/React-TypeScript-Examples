@@ -21,9 +21,32 @@ class UserSearch extends Component<IUserSearchProps> {
     user: undefined,
   };
 
-  // render() {
-  //   this.state.name;
-  // }
+  // arrow fns are bound to this
+  onClick = () => {
+    const user = this.props.users.find((user) => user.name === this.state.name);
+    this.setState({ user });
+  };
+
+  render() {
+    const { user } = this.state;
+    return (
+      <div>
+        User Search
+        <input
+          value={this.state.name}
+          onChange={(e) => this.setState({ name: e.target.value })}
+        />
+        <button onClick={this.onClick}>Find User</button>
+        <div>
+          {
+            // typescript will warn of undefined errors
+            user && user.name
+          }
+          {user?.age}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default UserSearch;
