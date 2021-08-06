@@ -8,8 +8,13 @@ interface IUserSearchProps {
   }[];
 }
 
+interface IUserSearchState {
+  name: string;
+  user: { name: string; age: number } | undefined;
+}
+
 class UserSearch extends Component<IUserSearchProps> {
-  state = {
+  state: IUserSearchState = {
     name: "",
     user: undefined,
   };
