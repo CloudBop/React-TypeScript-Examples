@@ -1,16 +1,18 @@
 import { Component } from "react";
 
+interface IUser {
+  name: string;
+  age: number;
+}
+
 interface IUserSearchProps {
-  users: {
-    // an array of objects of this shape
-    name: string;
-    age: number;
-  }[];
+  // an array of objects of this shape
+  users: IUser[];
 }
 
 interface IUserSearchState {
   name: string;
-  user: { name: string; age: number } | undefined;
+  user: IUser | undefined;
 }
 
 class UserSearch extends Component<IUserSearchProps> {
